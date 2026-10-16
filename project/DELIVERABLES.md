@@ -36,37 +36,57 @@ Profile types, nulls, duplicates, sentinels, labels, units and source support. A
 
 **Pass evidence:** Every treatment has affected count, reason, owner and reviewer; no silent row loss or coercion.
 
-## D5 — KPI catalogue and lineage
+## D5 — Monthly trading reconciliation ledger
 
-**Due:** Week 4 · **Owner:** Retail Commercial Analyst · **Team location:** docs/05-kpi-catalogue/
+**Due:** Week 4 · **Owner:** Retail Commercial Analyst · **Business reviewer:** Commercial Director · **Independent reviewer:** Retail Finance Assurance Analyst
 
-Implement K1–K7 below with actual source fields, code, valid population, denominator, units, grain, exclusions, owner and worked examples.
+**Required artefact:** data/curated/monthly-trading-reconciliation-ledger.csv and docs/05-kpi-catalogue/monthly-trading-reconciliation-ledger.md.
 
-**Pass evidence:** All seven reviewed; K1–K5 reconcile independently and in BI on full cohort and one filtered slice.
+Month × Country totals of positive sales, negative adjustment value, other adjustments, signed transaction value, invoice counts and known-customer coverage; separate December 2011 exclusions.
 
-## D6 — Analysis and evaluation
+**Mandatory pass condition (SC1):** Every original workbook line is retained/excluded/quarantined once; valid signed values reconcile exactly before rounding; +100 and −20 give 80; anonymous sales remain in trading totals.
 
-**Due:** Week 6 · **Owner:** Data Scientist / Decision Modelling Analyst · **Team location:** docs/06-analysis/
+**Review evidence:** retain the actual output, source-to-field/code/configuration lineage, expected/actual verification, reviewer and date. A heading, screenshot or unsupported claim alone cannot satisfy this deliverable.
 
-Descriptive/RFM core requires no predictive model. Use reference date 2011-12-01 and positive, non-cancellation invoices for RFM. Optional forecasting must use chronological rolling holdouts, never random line splitting.
 
-**Pass evidence:** Baseline and alternative results, population/class counts, uncertainty, negative findings and feature/timing audit retained; no test-driven tuning.
+## D6 — Customer value and product concentration analysis
 
-## D7 — Decision policy and action register
+**Due:** Week 6 · **Owner:** Data Scientist / Decision Modelling Analyst · **Business reviewer:** Commercial Director · **Independent reviewer:** Retail Finance Assurance Analyst
 
-**Due:** Week 6 · **Owner:** Retail Commercial Analyst · **Team location:** docs/07-decision-framework/
+**Required artefact:** docs/06-analysis/customer-value-and-product-concentration-analysis.md plus machine-readable evaluation_results.csv.
 
-Baseline ranks country × product combinations by positive sales value; alternative ranks by absolute negative-adjustment value / positive sales value with zero denominators unavailable. Customer action compares RFM quintile segments; top ten opportunities include known-customer coverage.
+Customer RFM as of 2011-12-01, with recency/frequency/monetary fields and deterministic quintile ties; top-ten product concentration by country; missing-ID coverage report.
 
-**Pass evidence:** Both policies and sensitivity outputs supplied; every action has evidence, eligibility, owner, next review and uncertainty. Include a defer case.
+**Mandatory pass condition (SC2):** No invoice on/after the cutoff affects RFM; frequency counts distinct eligible invoices; anonymous lines never receive invented customer IDs; no profit/margin claim without cost data.
 
-## D8 — Dashboard / decision prototype
+**Review evidence:** retain the actual output, source-to-field/code/configuration lineage, expected/actual verification, reviewer and date. A heading, screenshot or unsupported claim alone cannot satisfy this deliverable.
 
-**Due:** Week 7 · **Owner:** BI / Decision Product Developer · **Team location:** dashboard/
 
-Four linked views: K1–K7 executive overview, source-supported diagnostics, policy/action comparison and quality/limitations for Commercial Director.
+## D7 — Ten commercial investigation cases
 
-**Pass evidence:** Five metric/filter checks pass; frozen scope and limitations survive export; static copy/user guide require no paid access.
+**Due:** Week 6 · **Owner:** Retail Commercial Analyst · **Business reviewer:** Commercial Director · **Independent reviewer:** Retail Finance Assurance Analyst
+
+**Required artefact:** docs/07-decision-framework/ten-commercial-investigation-cases.csv plus policy.md.
+
+Up to ten country/product or customer-segment cases with positive value, adjustment ratio, coverage, baseline/alternative rank, action hypothesis, owner and evidence needed.
+
+**Mandatory pass condition (SC3):** Both ranking approaches use the same declared population; zero positive value yields unavailable adjustment ratio; every case distinguishes cancellation/adjustment evidence from confirmed physical returns.
+
+**Review evidence:** retain the actual output, source-to-field/code/configuration lineage, expected/actual verification, reviewer and date. A heading, screenshot or unsupported claim alone cannot satisfy this deliverable.
+
+
+## D8 — Quarterly trading dashboard
+
+**Due:** Week 7 · **Owner:** BI / Decision Product Developer · **Business reviewer:** Commercial Director · **Independent reviewer:** Retail Finance Assurance Analyst
+
+**Required artefact:** dashboard/README.md, runnable dashboard/prototype and static review export.
+
+Trading bridge, customer RFM, product/market concentration and data-quality views with common cutoff and country filters.
+
+**Mandatory pass condition (SC4):** Five full-cohort and five filtered measures reconcile; a reviewer traces one cancellation-heavy product and one high-value RFM segment to source lineage.
+
+**Review evidence:** retain the actual output, source-to-field/code/configuration lineage, expected/actual verification, reviewer and date. A heading, screenshot or unsupported claim alone cannot satisfy this deliverable.
+
 
 ## D9 — Independent assurance and UAT
 
@@ -84,13 +104,18 @@ One documented run entry point, dependency versions, manifest, output checksums/
 
 **Pass evidence:** Second member reproduces all seven KPIs and policy queue from approved bytes; environment, elapsed time and discrepancies recorded.
 
-## D11 — Executive recommendation
+## D11 — Retention and merchandising decision pack
 
-**Due:** Week 8 · **Owner:** Delivery Lead + domain specialist · **Team location:** deliverables/
+**Due:** Week 8 · **Owner:** Business Analyst / Delivery Lead with domain specialist · **Business reviewer:** Commercial Director · **Independent reviewer:** Retail Finance Assurance Analyst
 
-8–12 slides and a 5–10-minute demo answering Choose up to ten customer segments, product groups or country markets for retention and merchandising investigation. Include five evidence-linked findings, three next actions, comparison and a defer case.
+**Required artefact:** deliverables/retention-and-merchandising-decision-pack.pdf plus editable slides and supporting cards/runbook.
 
-**Pass evidence:** Every numeric claim links tested evidence; costs/benefits and operational targets are labelled assumptions unless measured.
+Three proposed interventions covering account retention, product investigation and market strategy; each has eligibility, accountable role, estimated affected value and pilot evaluation plan.
+
+**Mandatory pass condition (SC5):** Five findings cite tested numbers; affected value is not forecast uplift; every proposal states missing cost/return-reason evidence and an owner/date for obtaining it.
+
+**Review evidence:** retain the actual output, source-to-field/code/configuration lineage, expected/actual verification, reviewer and date. A heading, screenshot or unsupported claim alone cannot satisfy this deliverable.
+
 
 ## D12 — Contribution and final submission
 

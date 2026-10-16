@@ -6,9 +6,33 @@ This is a simulated confidential-client engagement using public/open data. Stake
 
 ## Problem and commission
 
-Sales totals hide cancellation activity, missing customer identities and concentrated product demand. Commercial managers need a reconciled view of gross sales, negative adjustments and customer value before assigning retention offers or changing the product range.
+The commercial director must decide where retention and merchandising effort should go next quarter. A product may appear attractive on positive invoice value while generating substantial negative adjustments; a market may appear to have valuable customers while many sales lack customer IDs. The team needs one reconciled commercial ledger before it can compare account value, product concentration and cancellation exposure. Ignoring anonymous lines or deleting negative quantities would produce attractive but misleading totals.
 
 > Choose up to ten customer segments, product groups or country markets for retention and merchandising investigation.
+
+## Practical use case and business outputs
+
+During quarterly trading review, the director compares markets and products on positive value, signed adjustments and customer coverage, then reviews customer RFM groups and approves a ten-item retention/merchandising investigation register.
+
+| Deliverable | What the team must hand over | Required contents |
+| --- | --- | --- |
+| D5 | Monthly trading reconciliation ledger | Month × Country totals of positive sales, negative adjustment value, other adjustments, signed transaction value, invoice counts and known-customer coverage; separate December 2011 exclusions. |
+| D6 | Customer value and product concentration analysis | Customer RFM as of 2011-12-01, with recency/frequency/monetary fields and deterministic quintile ties; top-ten product concentration by country; missing-ID coverage report. |
+| D7 | Ten commercial investigation cases | Up to ten country/product or customer-segment cases with positive value, adjustment ratio, coverage, baseline/alternative rank, action hypothesis, owner and evidence needed. |
+| D8 | Quarterly trading dashboard | Trading bridge, customer RFM, product/market concentration and data-quality views with common cutoff and country filters. |
+| D11 | Retention and merchandising decision pack | Three proposed interventions covering account retention, product investigation and market strategy; each has eligibility, accountable role, estimated affected value and pilot evaluation plan. |
+
+## Required success contract
+
+| Success ID | Required deliverable | Specific pass condition |
+| --- | --- | --- |
+| SC1 | D5 — Monthly trading reconciliation ledger | Every original workbook line is retained/excluded/quarantined once; valid signed values reconcile exactly before rounding; +100 and −20 give 80; anonymous sales remain in trading totals. |
+| SC2 | D6 — Customer value and product concentration analysis | No invoice on/after the cutoff affects RFM; frequency counts distinct eligible invoices; anonymous lines never receive invented customer IDs; no profit/margin claim without cost data. |
+| SC3 | D7 — Ten commercial investigation cases | Both ranking approaches use the same declared population; zero positive value yields unavailable adjustment ratio; every case distinguishes cancellation/adjustment evidence from confirmed physical returns. |
+| SC4 | D8 — Quarterly trading dashboard | Five full-cohort and five filtered measures reconcile; a reviewer traces one cancellation-heavy product and one high-value RFM segment to source lineage. |
+| SC5 | D11 — Retention and merchandising decision pack | Five findings cite tested numbers; affected value is not forecast uplift; every proposal states missing cost/return-reason evidence and an owner/date for obtaining it. |
+
+[Detailed acceptance](ACCEPTANCE_CRITERIA.md) defines executed evidence; [deliverables](DELIVERABLES.md) defines exact artefacts and ownership. G1 records simulated sponsor approval, not invented real-client agreement.
 
 ## Core scope
 
